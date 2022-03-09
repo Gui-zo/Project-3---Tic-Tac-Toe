@@ -4,7 +4,7 @@ winning_combos = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9],
 grid = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
 # Array containing the choices of each player.
-player1= []
+player1 = []
 player2 = []
 
 game_is_over = False
@@ -36,13 +36,29 @@ def check_winner():
 while game_is_over == False:
     print_tictactoe()
     pick1 = int(input("Pick a number to place the X: "))
-    player1.append(pick1)
-    grid[pick1-1] = "X"
-    print_tictactoe()
-    check_winner()
+    if pick1 in player1 or pick1 in player2:
+        print("This square has already been picked. Choose another one:\n")
+        player1.append(pick1)
+        grid[pick1-1] = "X"
+        print_tictactoe()
+        check_winner()  
+    else:
+        print("This square has already been picked. Choose another one:\n")
+        player1.append(pick1)
+        grid[pick1-1] = "X"
+        print_tictactoe()
+        check_winner()
     pick2 = int(input("Pick a number to place the O: "))
-    player2.append(pick2)
-    grid[pick2-1] = "O"
-    print_tictactoe()
-    check_winner()
+    if pick2 in player1 or pick2 in player2:
+        print("This square has already been picked. Choose another one:\n")
+        player2.append(pick2)
+        grid[pick2-1] = "O"
+        print_tictactoe()
+        check_winner()
+    else:
+        print("This square has already been picked. Choose another one:\n")
+        player2.append(pick2)
+        grid[pick2-1] = "O"
+        print_tictactoe()
+        check_winner()    
     
