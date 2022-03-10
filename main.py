@@ -32,33 +32,20 @@ def check_winner():
         game_is_over = True
         return exit()
 
-
-while game_is_over == False:
-    print_tictactoe()
+print_tictactoe()
+while game_is_over == False:    
     pick1 = int(input("Pick a number to place the X: "))
-    if pick1 in player1 or pick1 in player2:
-        print("This square has already been picked. Choose another one:\n")
-        player1.append(pick1)
-        grid[pick1-1] = "X"
-        print_tictactoe()
-        check_winner()  
-    else:
-        print("This square has already been picked. Choose another one:\n")
-        player1.append(pick1)
-        grid[pick1-1] = "X"
-        print_tictactoe()
-        check_winner()
+    while pick1 in player1 or pick1 in player2:
+        pick1 = int(input(("This square has already been picked. Choose another one:\n")))
+    player1.append(pick1)
+    grid[pick1-1] = "X"
+    print_tictactoe()
+    check_winner()  
     pick2 = int(input("Pick a number to place the O: "))
-    if pick2 in player1 or pick2 in player2:
-        print("This square has already been picked. Choose another one:\n")
-        player2.append(pick2)
-        grid[pick2-1] = "O"
-        print_tictactoe()
-        check_winner()
-    else:
-        print("This square has already been picked. Choose another one:\n")
-        player2.append(pick2)
-        grid[pick2-1] = "O"
-        print_tictactoe()
-        check_winner()    
+    while pick2 in player1 or pick2 in player2:
+        pick2 = int(input(("This square has already been picked. Choose another one:\n")))
+    player2.append(pick2)
+    grid[pick2-1] = "O"
+    print_tictactoe()
+    check_winner() 
     
